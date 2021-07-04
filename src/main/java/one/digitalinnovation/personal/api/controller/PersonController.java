@@ -1,10 +1,9 @@
 package one.digitalinnovation.personal.api.controller;
 
+import lombok.AllArgsConstructor;
 import one.digitalinnovation.personal.api.dto.request.PersonDTO;
 import one.digitalinnovation.personal.api.dto.response.MessageResponseDTO;
-import one.digitalinnovation.personal.api.entity.Person;
 import one.digitalinnovation.personal.api.exception.PersonNotFoundException;
-import one.digitalinnovation.personal.api.repository.PersonRepository;
 import one.digitalinnovation.personal.api.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,14 +14,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/people")    //classe fica com esse dominio (ou 'caminho')
+@AllArgsConstructor(onConstructor = @__(@Autowired))        //automatic constructor
 public class PersonController {
 
     private PersonService personService;
-
-    @Autowired
-    public PersonController(PersonService personService) {
-        this.personService = personService;
-    }
 
     //@GetMapping         recebe o 'caminho' da url denominado pela classe (@RequestMapping) e returna um valor
     @PostMapping
