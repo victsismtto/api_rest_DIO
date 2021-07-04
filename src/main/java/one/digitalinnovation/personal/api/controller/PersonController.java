@@ -37,12 +37,12 @@ public class PersonController {
     }
 
     @GetMapping("/{id}")
-    public PersonDTO findById(@PathVariable Long id) throws PersonNotFoundException {          //pathvarieble vc esta passando o id de uma pessoa -> através de uma requisição http
+    public PersonDTO findById(@PathVariable Long id) throws PersonNotFoundException {          //pathvarieble vc esta passando o id de uma pessoa -> throughout a http request
         return personService.findById(id);
     }
 
     @PutMapping("/{id}")
-    public MessageResponseDTO updateById(@PathVariable Long id, @RequestBody @Valid PersonDTO personDTO) throws PersonNotFoundException {      //Valid mapeamento pelo dto e validado por ele
+    public MessageResponseDTO updateById(@PathVariable Long id, @RequestBody @Valid PersonDTO personDTO) throws PersonNotFoundException {      //Valid mapping from dto e authenticate by it
         return personService.updateById (id, personDTO);
     }
 
