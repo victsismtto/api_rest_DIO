@@ -11,7 +11,7 @@ public interface PersonMapper {
 
     PersonMapper INSTANCE = Mappers.getMapper(PersonMapper.class);
 
-    @Mapping(target = "birthDate", source = "birthDate", dateFormat = "dd-MM-yy")   //coverter date em dd-mm-yy para entidade
+    @Mapping(target = "birthDate", source = "birthDate", dateFormat = "dd-MM-yy")       //transform date(dd-mm-yy) to entity
     Person toModel(PersonDTO personDTO);
     PersonDTO toDTO(Person person);
 

@@ -9,9 +9,9 @@ import one.digitalinnovation.personal.api.enums.PhoneType;
 import javax.persistence.*;
 
 @Entity
-@Data       //gera getters e setters para todos os campos
+@Data                                                       //create getters e setters for all fields
 @Builder
-@AllArgsConstructor //gera o construtor da classe
+@AllArgsConstructor                                         //rule to the class construct
 @NoArgsConstructor
 public class Phone {
 
@@ -19,10 +19,10 @@ public class Phone {
     @GeneratedValue(strategy = GenerationType.IDENTITY)     //deixa a obrigatoriedade de incrementacao do id ao banco de dados
     private Long id;
 
-    @Enumerated(EnumType.STRING)    //vem de PhoneType com a string conforme lá
-    @Column(nullable = false)       //regra BD -> not null
+    @Enumerated(EnumType.STRING)                            //comes from PhoneType with the string mobile, personal...
+    @Column(nullable = false)                               //database rule -> not null
     private PhoneType type;
 
-    @Column(nullable = false)       //regra BD -> not null
+    @Column(nullable = false)                               //database rule-> not null
     private String number;
 }
