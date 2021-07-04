@@ -9,7 +9,6 @@ import org.mapstruct.factory.Mappers;
 @Mapper
 public interface PersonMapper {
 
-    @Mapping
     PersonMapper INSTANCE = Mappers.getMapper(PersonMapper.class);
 
     @Mapping(target = "birthDate", source = "birthDate", dateFormat = "dd-MM-yy")   //coverter date em dd-mm-yy para entidade
