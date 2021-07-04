@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 public class PersonService {
 
     private PersonRepository personRepository;
-    
+
     private final PersonMapper personMapper = PersonMapper.INSTANCE;
 
     @Autowired
@@ -25,24 +25,24 @@ public class PersonService {
         this.personRepository = personRepository;
     }
 
-    public MessageResponseDTO createPerson(PersonDTO personDTO) {               //RequestBody -> indica que o objeto (JSON) esta vindo de uma requisição
+    public MessageResponseDTO createPerson(PersonDTO personDTO) {               //RequestBody -> shows that a JSON object is coming from a request
 
         Person personSave = personMapper.toModel(personDTO);
 
-    Person savedPerson = personRepository.save(personSave);                     //salvar a 'person' dentro do método
+    Person savedPerson = personRepository.save(personSave);                     //salve the 'person' inside of method
         return createMessageResponse(savedPerson.getId(), "Created person with ID ");
     }
 
     public List<PersonDTO> listAll() {
         List<Person> allPeople = personRepository.findAll();
         return allPeople.stream()
-                .map(personMapper::toDTO)                                       //converte de entidade para DTO
-                .collect(Collectors.toList());                                  //após converter, retorna a lista
+                .map(personMapper::toDTO)                                       //transform the entity to DTO
+                .collect(Collectors.toList());                                  //after the change, retun the list
     }
 
     public PersonDTO findById(long id) throws PersonNotFoundException {
         Person person = verifyIfExists(id);
-        //Optional<Person> optionalPerson = personRepository.findById(id);    Optional -> indicar se uma pessoa existe ou não na API
+        //Optional<Person> optionalPerson = personRepository.findById(id);    Optional -> shos if a person exists (API)
 
         return personMapper.toDTO(person);
     }
