@@ -43,7 +43,7 @@ public class PersonService {
     }
 
     public PersonDTO findById(long id) throws PersonNotFoundException {
-        personRepository.findById(id)
+        Person person = personRepository.findById(id)
                 .orElseThrow(() -> new PersonNotFoundException(id));
         //Optional<Person> optionalPerson = personRepository.findById(id);    Optional -> indicar se uma pessoa existe ou não na API
 
