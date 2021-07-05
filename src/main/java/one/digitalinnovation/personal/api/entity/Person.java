@@ -33,4 +33,5 @@ public class Person {
 
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})      //fetch.lazy (ser permofatico) e cascade serve para ir para o cadastro de pessoas diretamente e não puxar o telefone primeiro
     private List<Phone> phone;
+
 }
